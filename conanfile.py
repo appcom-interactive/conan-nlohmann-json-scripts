@@ -8,7 +8,7 @@ class NlohmannJsonConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "android_ndk": "ANY", "android_stl_type":["c++_static", "c++_shared"]}
     default_options = "shared=False", "android_ndk=None", "android_stl_type=c++_static"
-    description = "Compressing File-I/O Library"
+    description = "JSON for Modern C++"
     url = "https://github.com/Manromen/conan-nlohmann-json-scripts"
     license = "MIT"
 
