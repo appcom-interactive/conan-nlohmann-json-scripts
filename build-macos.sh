@@ -23,6 +23,9 @@ set -e
 #=======================================================================================================================
 # settings
 
+declare CONAN_USER=rgpaul
+declare CONAN_CHANNEL=stable
+
 declare LIBRARY_VERSION=3.4.0
 declare MACOS_SDK_VERSION=$(xcodebuild -showsdks | grep macosx | awk '{print $4}' | sed 's/[^0-9,\.]*//g')
 
@@ -34,15 +37,14 @@ function createConanPackage()
     local arch=$1
     local build_type=$2
 
-    conan create . NlohmannJson/${LIBRARY_VERSION}@rgpaul/stable -s os=Macos -s os.version=${MACOS_SDK_VERSION} \
-    	-s arch=${arch} -s build_type=${build_type} -o shared=False
+    conan create . nlohmann-json/${LIBRARY_VERSION}@${CONAN_USER}/${CONAN_CHANNEL} -s os=Macos \
+        -s os.version=${MACOS_SDK_VERSION} -s arch=${arch} -s build_type=${build_type} -o shared=False
 }
 
 #=======================================================================================================================
 # create packages for all architectures and build types
 
+# this is a header only library, so we just create one package
 createConanPackage x86_64 Release
-createConanPackage x86_64 Debug
 
 # arch x86 is deprecated on macos, so we won't build for x86
-
