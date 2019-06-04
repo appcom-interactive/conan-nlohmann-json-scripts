@@ -2,7 +2,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # The MIT License (MIT)
 #
-# Copyright (c) 2018 Ralph-Gordon Paul. All rights reserved.
+# Copyright (c) 2018-2019 Ralph-Gordon Paul. All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 # documentation files (the "Software"), to deal in the Software without restriction, including without limitation the 
@@ -26,7 +26,7 @@ set -e
 declare CONAN_USER=rgpaul
 declare CONAN_CHANNEL=stable
 
-declare LIBRARY_VERSION=3.4.0
+declare LIBRARY_VERSION=3.6.1
 declare MACOS_SDK_VERSION=$(xcodebuild -showsdks | grep macosx | awk '{print $4}' | sed 's/[^0-9,\.]*//g')
 
 #=======================================================================================================================
@@ -38,7 +38,7 @@ function createConanPackage()
     local build_type=$2
 
     conan create . nlohmann-json/${LIBRARY_VERSION}@${CONAN_USER}/${CONAN_CHANNEL} -s os=Macos \
-        -s os.version=${MACOS_SDK_VERSION} -s arch=${arch} -s build_type=${build_type} -o shared=False
+        -s os.version=${MACOS_SDK_VERSION} -s arch=${arch} -s build_type=${build_type}
 }
 
 #=======================================================================================================================

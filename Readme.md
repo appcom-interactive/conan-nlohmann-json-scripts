@@ -11,7 +11,7 @@ This repository is licensed under the [MIT License](LICENSE).
 
 To create a package for macOS you can run the conan command like this:
 
-`conan create . nlohmann-json/3.4.0@rgpaul/stable`
+`conan create . nlohmann-json/3.6.1@rgpaul/stable`
 
 ### Requirements
 

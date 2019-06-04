@@ -2,7 +2,7 @@ from conans import ConanFile, CMake, tools
 
 class NlohmannJsonConan(ConanFile):
     name = "nlohmann-json"
-    version = "3.4.0"
+    version = "3.6.1"
     author = "Ralph-Gordon Paul (gordon@rgpaul.com)"
     settings = "os", "compiler", "build_type", "arch"
     # No options are necessary, this is a header only library
