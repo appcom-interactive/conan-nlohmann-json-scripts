@@ -23,7 +23,7 @@ set -e
 #=======================================================================================================================
 # settings
 
-declare CONAN_USER=rgpaul
+declare CONAN_USER=appcom
 declare CONAN_CHANNEL=stable
 
 declare LIBRARY_VERSION=3.6.1
